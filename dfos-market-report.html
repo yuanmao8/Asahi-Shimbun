@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分布式光纤传感器(DFOS)市场分析报告 2024-2030</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #0891b2;
+            --accent: #7c3aed;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans SC', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon.blue { background: #dbeafe; color: var(--primary); }
+        .card-icon.green { background: #d1fae5; color: var(--success); }
+        .card-icon.purple { background: #ede9fe; color: var(--accent); }
+        .card-icon.orange { background: #ffedd5; color: var(--warning); }
+        .card-icon.cyan { background: #cffafe; color: var(--secondary); }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Data Tables */
+        .table-container {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        th {
+            background: var(--dark);
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        tr:hover {
+            background: #f8fafc;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-green { background: #d1fae5; color: #065f46; }
+        .badge-blue { background: #dbeafe; color: #1e40af; }
+        .badge-purple { background: #ede9fe; color: #5b21b6; }
+
+        /* Charts Container */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .chart-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-card h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px var(--primary);
+        }
+
+        .timeline-item h4 {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Region Map Section */
+        .region-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .region-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid var(--primary);
+        }
+
+        .region-card h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .region-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .region-growth {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            background: #d1fae5;
+            color: #065f46;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .region-meta {
+            margin-top: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Company Section */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .company-info h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .company-info p {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Challenges & Opportunities */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .list-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .list-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .list-card ul {
+            list-style: none;
+        }
+
+        .list-card li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .list-card li:last-child {
+            border-bottom: none;
+        }
+
+        .list-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.75rem;
+        }
+
+        .list-icon.success { background: #d1fae5; color: #065f46; }
+        .list-icon.warning { background: #fef3c7; color: #92400e; }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.7;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+            }
+
+            .hero-stat-value {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* Progress bars */
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-item {
+            margin-bottom: 1rem;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-out;
+        }
+
+        .progress-fill.blue { background: var(--primary); }
+        .progress-fill.green { background: var(--success); }
+        .progress-fill.purple { background: var(--accent); }
+        .progress-fill.orange { background: var(--warning); }
+        .progress-fill.cyan { background: var(--secondary); }
+
+        /* Cost Analysis */
+        .cost-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cost-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .cost-card h4 {
+            font-size: 1rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+
+        .cost-range {
+            color: var(--primary);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">DFOS市场报告</a>
+            <ul class="nav-links">
+                <li><a href="#overview">概述</a></li>
+                <li><a href="#segments">市场细分</a></li>
+                <li><a href="#regions">区域分析</a></li>
+                <li><a href="#drivers">驱动因素</a></li>
+                <li><a href="#companies">竞争格局</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>分布式光纤传感器（DFOS）市场分析</h1>
+            <p>全球市场规模预测至2030年 | 技术趋势与应用分析 | 竞争格局深度解读</p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">$14.8亿</span>
+                    <span class="hero-stat-label">2024年市场规模</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">$28.1亿</span>
+                    <span class="hero-stat-label">2030年预测规模</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">11.4%</span>
+                    <span class="hero-stat-label">年复合增长率</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">2025-2030</span>
+                    <span class="hero-stat-label">预测周期</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">市场概述</h2>
+            <p class="section-subtitle">分布式光纤传感器利用光纤检测温度、应变和声学信号的变化，实现长距离实时连续数据采集</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-icon blue">🌡️</div>
+                    <h3>温度感应</h3>
+                    <p>使用线性光纤传感器测量温度，实现长距离高精度温度监测，2024年市场份额45.6%</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon green">📡</div>
+                    <h3>声学/振动感应</h3>
+                    <p>分布式应变传感系统，可识别远距离和临界环境中的声频应变信号，增长最快达12.2%</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon purple">⚡</div>
+                    <h3>瑞利效应技术</h3>
+                    <p>弹性光散射技术，预计实现14.9%的最高增长率，为行业提供重大增长机遇</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon orange">🛤️</div>
+                    <h3>铁路基础设施监测</h3>
+                    <p>以23.9%收入份额主导应用市场，实现轨道振动、应变和环境条件的连续跟踪</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon cyan">🛢️</div>
+                    <h3>油气行业应用</h3>
+                    <p>以34.3%收入份额主导垂直市场，用于管道监测、泄漏检测和井下测量</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon blue">🏗️</div>
+                    <h3>土木工程监测</h3>
+                    <p>广泛用于桥梁、隧道、大坝和建筑物的结构健康、变形和环境因素监测</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Size Charts -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">市场规模趋势</h2>
+            <p class="section-subtitle">2017-2030年全球分布式光纤传感器市场收入预测（百万美元）</p>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h3>全球市场规模走势</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="marketSizeChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>按功能划分市场份额 (2024)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="functionChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments Section -->
+    <section id="segments" class="section">
+        <div class="container">
+            <h2 class="section-title">市场细分分析</h2>
+            <p class="section-subtitle">按功能、技术、应用和垂直行业的详细市场细分</p>
+            
+            <div class="charts-grid" style="margin-bottom: 3rem;">
+                <div class="chart-card">
+                    <h3>按技术划分 (2024 vs 2030)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="technologyChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>按垂直行业划分 (2024 vs 2030)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="verticalChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segment Tables -->
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">按功能划分市场数据</h3>
+            <div class="table-container" style="margin-bottom: 2rem;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>功能类型</th>
+                            <th>2024年市值 (百万美元)</th>
+                            <th>2030年预测 (百万美元)</th>
+                            <th>CAGR</th>
+                            <th>增长动力</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>温度感应</td>
+                            <td>$679.4</td>
+                            <td>$1,236.9</td>
+                            <td><span class="badge badge-green">10.6%</span></td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>声学/振动感应</td>
+                            <td>$638.2</td>
+                            <td>$1,269.8</td>
+                            <td><span class="badge badge-blue">12.2%</span></td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>其他</td>
+                            <td>$164.9</td>
+                            <td>$302.7</td>
+                            <td><span class="badge badge-green">10.8%</span></td>
+                            <td>中等</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">按技术划分市场数据</h3>
+            <div class="table-container" style="margin-bottom: 2rem;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>技术类型</th>
+                            <th>2024年市值 (百万美元)</th>
+                            <th>2030年预测 (百万美元)</th>
+                            <th>CAGR</th>
+                            <th>增长动力</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>拉曼效应</td>
+                            <td>$520.9</td>
+                            <td>$795.5</td>
+                            <td><span class="badge badge-green">7.4%</span></td>
+                            <td>低</td>
+                        </tr>
+                        <tr>
+                            <td>瑞利效应</td>
+                            <td>$338.1</td>
+                            <td>$775.6</td>
+                            <td><span class="badge badge-purple">14.9%</span></td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>布拉格光栅</td>
+                            <td>$214.5</td>
+                            <td>$371.1</td>
+                            <td><span class="badge badge-green">9.5%</span></td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>干涉测量</td>
+                            <td>$208.9</td>
+                            <td>$445.7</td>
+                            <td><span class="badge badge-blue">13.6%</span></td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>布里渊散射</td>
+                            <td>$200.0</td>
+                            <td>$421.4</td>
+                            <td><span class="badge badge-blue">13.3%</span></td>
+                            <td>高</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">按应用领域划分市场数据</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>应用领域</th>
+                            <th>2024年市值 (百万美元)</th>
+                            <th>2030年预测 (百万美元)</th>
+                            <th>CAGR</th>
+                            <th>增长动力</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>铁路基础设施监测</td>
+                            <td>$354.4</td>
+                            <td>$797.2</td>
+                            <td><span class="badge badge-purple">14.6%</span></td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>地球物理事件监测</td>
+                            <td>$305.0</td>
+                            <td>$526.1</td>
+                            <td><span class="badge badge-green">9.6%</span></td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>海底基础设施监测</td>
+                            <td>$241.8</td>
+                            <td>$404.9</td>
+                            <td><span class="badge badge-green">9.1%</span></td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>城市监测</td>
+                            <td>$226.0</td>
+                            <td>$489.6</td>
+                            <td><span class="badge badge-blue">13.9%</span></td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>网络干扰监测</td>
+                            <td>$183.0</td>
+                            <td>$322.7</td>
+                            <td><span class="badge badge-green">10.0%</span></td>
+                            <td>中等</td>
+                        </tr>
+                        <tr>
+                            <td>其他</td>
+                            <td>$172.3</td>
+                            <td>$269.0</td>
+                            <td><span class="badge badge-green">7.6%</span></td>
+                            <td>低</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Analysis -->
+    <section id="regions" class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">区域市场分析</h2>
+            <p class="section-subtitle">全球五大区域市场规模与增长预测</p>
+            
+            <div class="charts-grid" style="margin-bottom: 3rem;">
+                <div class="chart-card">
+                    <h3>区域市场份额 (2024)</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="regionPieChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>区域市场增长对比</h3>
+                    <div class="chart-wrapper">
+                        <canvas id="regionBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-grid">
+                <div class="region-card">
+                    <h4>🌎 北美</h4>
+                    <div>
+                        <span class="region-value">$822.4M</span>
+                        <span class="region-growth">↑ 10.5%</span>
+                    </div>
+                    <p class="region-meta">2024年: $455.0M | 份额: 30.7%</p>
+                    <p class="region-meta" style="margin-top: 0.5rem;">主要市场: 美国(57.1%), 加拿大(32.3%), 墨西哥(12.7%)</p>
+                </div>
+                <div class="region-card">
+                    <h4>🌍 欧洲</h4>
+                    <div>
+                        <span class="region-value">$762.8M</span>
+                        <span class="region-growth">↑ 11.5%</span>
+                    </div>
+                    <p class="region-meta">2024年: $400.3M | 份额: 27.0%</p>
+                    <p class="region-meta" style="margin-top: 0.5rem;">主要市场: 英国(24.2%), 德国(19.7%), 法国(16.0%)</p>
+                </div>
+                <div class="region-card">
+                    <h4>🌏 亚太</h4>
+                    <div>
+                        <span class="region-value">$611.6M</span>
+                        <span class="region-growth">↑ 12.6%</span>
+                    </div>
+                    <p class="region-meta">2024年: $302.6M | 份额: 20.4%</p>
+                    <p class="region-meta" style="margin-top: 0.5rem;">主要市场: 中国(25.9%), 印度(20.2%), 日本(12.1%)</p>
+                </div>
+                <div class="region-card">
+                    <h4>🌎 拉丁美洲</h4>
+                    <div>
+                        <span class="region-value">$394.2M</span>
+                        <span class="region-growth">↑ 11.8%</span>
+                    </div>
+                    <p class="region-meta">2024年: $202.9M | 份额: 13.7%</p>
+                    <p class="region-meta" style="margin-top: 0.5rem;">主要市场: 巴西(58.7%)</p>
+                </div>
+                <div class="region-card">
+                    <h4>🌍 中东与非洲</h4>
+                    <div>
+                        <span class="region-value">$218.3M</span>
+                        <span class="region-growth">↑ 10.3%</span>
+                    </div>
+                    <p class="region-meta">2024年: $121.8M | 份额: 8.2%</p>
+                    <p class="region-meta" style="margin-top: 0.5rem;">主要市场: 沙特(29.1%), 南非(21.4%), 阿联酋(18.4%)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Drivers & Challenges -->
+    <section id="drivers" class="section">
+        <div class="container">
+            <h2 class="section-title">市场驱动因素与挑战</h2>
+            <p class="section-subtitle">影响分布式光纤传感器市场发展的关键因素分析</p>
+            
+            <div class="two-col">
+                <div class="list-card">
+                    <h3><span style="color: var(--success);">✓</span> 市场驱动因素</h3>
+                    <ul>
+                        <li>
+                            <span class="list-icon success">1</span>
+                            <div>
+                                <strong>基础设施监测需求增加</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">管道、桥梁、隧道、铁路、电网等关键基础设施需要持续精确监测</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon success">2</span>
+                            <div>
+                                <strong>油气行业扩张和现代化</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">管道、钻井平台、炼油厂需要持续的安全和效率监测</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon success">3</span>
+                            <div>
+                                <strong>技术进步与数字生态系统集成</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">与物联网、AI、机器学习集成实现预测性维护和异常检测</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon success">4</span>
+                            <div>
+                                <strong>智慧城市和交通系统发展</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">实时安全监测和效率优化需求持续增长</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon success">5</span>
+                            <div>
+                                <strong>可再生能源和环境监测需求</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">风电场、太阳能电站的结构健康监测需求上升</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-card">
+                    <h3><span style="color: var(--warning);">!</span> 市场挑战</h3>
+                    <ul>
+                        <li>
+                            <span class="list-icon warning">1</span>
+                            <div>
+                                <strong>高安装成本和复杂部署</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">需要专业设备和熟练劳动力，光纤敏感易损需仔细规划</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon warning">2</span>
+                            <div>
+                                <strong>缺乏标准化和互操作性问题</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">专有技术限制不同供应商设备之间的互操作性</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon warning">3</span>
+                            <div>
+                                <strong>恶劣环境中的技术挑战</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">极端温度、机械应力和化学暴露影响传感器性能</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon warning">4</span>
+                            <div>
+                                <strong>数据管理和网络安全问题</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">大量数据的处理、存储和分析及安全防护需求</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="list-icon warning">5</span>
+                            <div>
+                                <strong>有限的意识和技术专业知识</strong>
+                                <p style="color: var(--gray); font-size: 0.875rem; margin-top: 0.25rem;">部分行业和地区对技术了解不足，专业人才短缺</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cost Analysis -->
+    <section class="section" style="background: white;">
+        <div class="container">
+            <h2 class="section-title">系统成本分析</h2>
+            <p class="section-subtitle">分布式光纤传感器系统的典型成本范围和构成</p>
+            
+            <div class="cost-grid">
+                <div class="cost-card">
+                    <h4>💰 硬件组件成本</h4>
+                    <div class="cost-item">
+                        <span>基本系统 (1-5km)</span>
+                        <span class="cost-range">$10,000 - $50,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>高性能系统 (50-100km)</span>
+                        <span class="cost-range">$100,000 - $500,000+</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>询问器单元</span>
+                        <span class="cost-range">$20,000 - $200,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>光纤电缆</span>
+                        <span class="cost-range">$0.5 - $10/米</span>
+                    </div>
+                </div>
+                <div class="cost-card">
+                    <h4>🏭 按应用分类成本</h4>
+                    <div class="cost-item">
+                        <span>油气行业</span>
+                        <span class="cost-range">$100,000 - $2M</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>基础设施监测</span>
+                        <span class="cost-range">$80,000 - $800,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>安全监控</span>
+                        <span class="cost-range">$30,000 - $300,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>AI分析系统</span>
+                        <span class="cost-range">$2M+</span>
+                    </div>
+                </div>
+                <div class="cost-card">
+                    <h4>🔧 部署与维护成本</h4>
+                    <div class="cost-item">
+                        <span>安装成本</span>
+                        <span class="cost-range">$10,000 - $200,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>集成成本</span>
+                        <span class="cost-range">$5,000 - $100,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>年维护成本</span>
+                        <span class="cost-range">$2,000 - $50,000</span>
+                    </div>
+                    <div class="cost-item">
+                        <span>生命周期成本 (10-20年)</span>
+                        <span class="cost-range">$50,000 - $500,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competitive Landscape -->
+    <section id="companies" class="section">
+        <div class="container">
+            <h2 class="section-title">竞争格局</h2>
+            <p class="section-subtitle">主要市场参与者概览与市场策略分析</p>
+            
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-value">中等</div>
+                    <div class="stat-label">市场集中度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">加速</div>
+                    <div class="stat-label">创新速度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">活跃</div>
+                    <div class="stat-label">并购活动</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">碎片化</div>
+                    <div class="stat-label">市场结构</div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem;">主要市场参与者</h3>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-logo">S</div>
+                    <div class="company-info">
+                        <h4>Schlumberger Limited</h4>
+                        <p>美国 | 成立于1926年</p>
+                        <p>110,000员工 | 2024营收: $362.89亿</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">H</div>
+                    <div class="company-info">
+                        <h4>Halliburton</h4>
+                        <p>美国 | 成立于1919年</p>
+                        <p>48,000员工 | 2024营收: $229.44亿</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Y</div>
+                    <div class="company-info">
+                        <h4>Yokogawa Electric</h4>
+                        <p>日本 | 成立于1915年</p>
+                        <p>17,365员工 | 自动化与测量方案</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">O</div>
+                    <div class="company-info">
+                        <h4>OFS Fitel, LLC</h4>
+                        <p>美国 | 成立于2001年</p>
+                        <p>光纤电缆与连接解决方案</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Q</div>
+                    <div class="company-info">
+                        <h4>QinetiQ Group PLC</h4>
+                        <p>英国 | 成立于2001年</p>
+                        <p>8,403员工 | OptaSense光纤业务</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">O</div>
+                    <div class="company-info">
+                        <h4>Omnisens SA</h4>
+                        <p>瑞士 | 成立于1999年</p>
+                        <p>DTS解决方案与资产完整性</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">B</div>
+                    <div class="company-info">
+                        <h4>Brugg Kable AG</h4>
+                        <p>瑞士 | 成立于1896年</p>
+                        <p>电缆系统与传感方案</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">L</div>
+                    <div class="company-info">
+                        <h4>Luna Innovations Inc.</h4>
+                        <p>美国 | 成立于1990年</p>
+                        <p>344员工 | 光纤传感与测量</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">A</div>
+                    <div class="company-info">
+                        <h4>AP Sensing GmbH</h4>
+                        <p>德国 | 成立于2007年</p>
+                        <p>DTS、DAS、DVS技术方案</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">B</div>
+                    <div class="company-info">
+                        <h4>Baker Hughes Company</h4>
+                        <p>英国 | 成立于1987年</p>
+                        <p>57,000员工 | 能源与工业市场</p>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">S</div>
+                    <div class="company-info">
+                        <h4>Silixa Ltd</h4>
+                        <p>英国 | 成立于2007年</p>
+                        <p>高分辨率实时感应方案</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Developments -->
+            <h3 style="margin: 3rem 0 1.5rem; font-size: 1.25rem;">近期重要发展</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4>2025年1月 - OFS推出DataSens增强型光纤</h4>
+                    <p>提供比传统光纤更强的背散射信号，扩展感应范围并提高精度，无需昂贵的信号放大</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2024年12月 - Kaynes Technology收购Sensonic GmbH</h4>
+                    <p>收购54%控股权，利用Sensonic的AI驱动技术和传感器系统加强先进铁路解决方案能力</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2024年11月 - Thales与FEBUS Optics合作</h4>
+                    <p>开发关键海底基础设施先进监测解决方案，结合DFOS能力与声学技术专长</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2024年9月 - SLB建立Turnwell Industries合资企业</h4>
+                    <p>与Patterson-UTI和ADNOC Drilling合作，利用智能钻井设计、AI和生产解决方案加速阿联酋非常规油气计划</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>2023年3月 - AP Sensing推出LHD N45系列</h4>
+                    <p>光纤线性热检测系统，具有用户友好界面、每通道2000个报警区域，35年MTBF</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="section" style="background: linear-gradient(135deg, var(--dark) 0%, #334155 100%); color: white;">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">总结与展望</h2>
+            <p class="section-subtitle" style="color: rgba(255,255,255,0.8);">分布式光纤传感器市场正处于快速增长阶段</p>
+            
+            <div class="card-grid">
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">📈 市场规模翻番</h3>
+                    <p style="color: rgba(255,255,255,0.8);">从2024年的14.8亿美元增长至2030年的28.1亿美元，年复合增长率11.4%</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">🌏 亚太领跑增长</h3>
+                    <p style="color: rgba(255,255,255,0.8);">亚太地区以12.6%的最高增长率成为增长最快的区域市场</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">⚡ 技术创新加速</h3>
+                    <p style="color: rgba(255,255,255,0.8);">瑞利效应技术以14.9%增长率领先，AI和IoT集成推动应用扩展</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">🛤️ 铁路监测领先</h3>
+                    <p style="color: rgba(255,255,255,0.8);">铁路基础设施监测以14.6%增长率成为增长最快的应用领域</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">🏭 工业应用崛起</h3>
+                    <p style="color: rgba(255,255,255,0.8);">工业领域以13.9%增长率成为垂直行业中增长最快的细分市场</p>
+                </div>
+                <div class="card" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);">
+                    <h3 style="color: white;">🔮 未来发展关键</h3>
+                    <p style="color: rgba(255,255,255,0.8);">降低部署成本、建立行业标准、持续技术创新将决定市场成功</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>数据来源: Grand View Research - 分布式光纤传感器市场分析与预测报告 (2024-2030)</p>
+            <p style="margin-top: 0.5rem;">本网页仅供信息展示，版权归原报告所有者所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // Market Size Chart
+        const marketSizeCtx = document.getElementById('marketSizeChart').getContext('2d');
+        new Chart(marketSizeCtx, {
+            type: 'line',
+            data: {
+                labels: ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030'],
+                datasets: [{
+                    label: '市场规模 (百万美元)',
+                    data: [765.5, 836.6, 914.7, 1001.3, 1096.9, 1202.7, 1319.9, 1482.5, 1650.4, 1841.3, 2056.5, 2299.3, 2573.4, 2809.4],
+                    borderColor: '#2563eb',
+                    backgroundColor: 'rgba(37, 99, 235, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 4,
+                    pointBackgroundColor: '#2563eb'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Function Pie Chart
+        const functionCtx = document.getElementById('functionChart').getContext('2d');
+        new Chart(functionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['温度感应', '声学/振动感应', '其他'],
+                datasets: [{
+                    data: [45.6, 40.5, 13.9],
+                    backgroundColor: ['#2563eb', '#10b981', '#7c3aed'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Technology Bar Chart
+        const technologyCtx = document.getElementById('technologyChart').getContext('2d');
+        new Chart(technologyCtx, {
+            type: 'bar',
+            data: {
+                labels: ['拉曼效应', '瑞利效应', '布拉格光栅', '干涉测量', '布里渊散射'],
+                datasets: [{
+                    label: '2024年',
+                    data: [520.9, 338.1, 214.5, 208.9, 200.0],
+                    backgroundColor: '#94a3b8'
+                }, {
+                    label: '2030年',
+                    data: [795.5, 775.6, 371.1, 445.7, 421.4],
+                    backgroundColor: '#2563eb'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Vertical Bar Chart
+        const verticalCtx = document.getElementById('verticalChart').getContext('2d');
+        new Chart(verticalCtx, {
+            type: 'bar',
+            data: {
+                labels: ['油气行业', '电力与公用事业', '土木工程', '工业', '安全与安保'],
+                datasets: [{
+                    label: '2024年',
+                    data: [507.8, 337.0, 232.1, 213.8, 191.9],
+                    backgroundColor: '#94a3b8'
+                }, {
+                    label: '2030年',
+                    data: [865.3, 657.1, 429.2, 464.2, 393.6],
+                    backgroundColor: '#10b981'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Region Pie Chart
+        const regionPieCtx = document.getElementById('regionPieChart').getContext('2d');
+        new Chart(regionPieCtx, {
+            type: 'pie',
+            data: {
+                labels: ['北美', '欧洲', '亚太', '拉丁美洲', '中东与非洲'],
+                datasets: [{
+                    data: [30.7, 27.0, 20.4, 13.7, 8.2],
+                    backgroundColor: ['#2563eb', '#7c3aed', '#10b981', '#f59e0b', '#0891b2'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Region Bar Chart
+        const regionBarCtx = document.getElementById('regionBarChart').getContext('2d');
+        new Chart(regionBarCtx, {
+            type: 'bar',
+            data: {
+                labels: ['北美', '欧洲', '亚太', '拉丁美洲', '中东与非洲'],
+                datasets: [{
+                    label: '2024年 (百万美元)',
+                    data: [455.0, 400.3, 302.6, 202.9, 121.8],
+                    backgroundColor: '#94a3b8'
+                }, {
+                    label: '2030年 (百万美元)',
+                    data: [822.4, 762.8, 611.6, 394.2, 218.3],
+                    backgroundColor: '#7c3aed'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0,0,0,0.05)'
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
